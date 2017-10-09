@@ -70,3 +70,64 @@ function stringTimes(str, num) {
  stringTimes('Hi', 2)
  stringTimes('Hi', 3)
  stringTimes('Hi', 1)
+
+//  Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
+ 
+//  stringBits('Hello') → 'Hlo'
+//  stringBits('Hi') → 'H'
+//  stringBits('Heeololeo') → 'Hello'
+
+function stringBits(str) {
+    let out = ''
+    for (let i = 0; i < str.length; i += 2) {
+        out += str[i]
+    }
+    console.log(out)
+}
+
+ stringBits('Hello')
+ stringBits('Hi')
+ stringBits('Heeololeo')
+
+//  Given a non-empty string like "Code" return a string like "CCoCodCode".
+ 
+//  stringSplosion('Code') → 'CCoCodCode'
+//  stringSplosion('abc') → 'aababc'
+//  stringSplosion('ab') → 'aab'
+
+function stringSplosion(str) {
+    let out = ''
+    for (let i = 0; i < str.length + 1; i++) {
+        out = out + str.substring(0,i)
+    }
+    console.log(out)
+} 
+
+ stringSplosion('Code')
+ stringSplosion('abc')
+ stringSplosion('ab')
+
+ /* two bricks small: 1, big: 5
+ * with the available bricks reach the goal without
+ * going over it
+ * function makeBricks(smallStep, bigStep, goal)
+ *
+ *
+ * compare both small and big ints singular
+ * then compare both together
+ * if unsucsesful recurs the func subtracting 1 from both args
+ *
+ */
+
+ function makeBricks(small, big, goal) {
+    let smallBrick = 1 * small
+    let bigBrick = 5 * big
+    if (smallBrick + bigBrick === goal) {
+        console.log(true)
+    }else{
+        console.log(false)
+    }
+}
+
+makeBricks(1, 5, 26)
+makeBricks(1, 5, 27)
