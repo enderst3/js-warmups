@@ -107,17 +107,17 @@ function stringSplosion(str) {
  stringSplosion('abc')
  stringSplosion('ab')
 
- /* two bricks small: 1, big: 5
- * with the available bricks reach the goal without
- * going over it
- * function makeBricks(smallStep, bigStep, goal)
- *
- *
- * compare both small and big ints singular
- * then compare both together
- * if unsucsesful recurs the func subtracting 1 from both args
- *
- */
+// two bricks small: 1, big: 5
+// with the available bricks reach the goal without
+// going over it
+// function makeBricks(smallStep, bigStep, goal)
+
+
+// compare both small and big ints singular
+// then compare both together
+// if unsucsesful recurs the func subtracting 1 from both args
+
+
 
  function makeBricks(small, big, goal) {
     let smallBrick = 1 * small
