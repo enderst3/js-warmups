@@ -131,3 +131,36 @@ function stringSplosion(str) {
 
 makeBricks(1, 5, 26)
 makeBricks(1, 5, 27)
+
+/*
+Write a function that will return the count of distinct case-insensitive 
+alphabetic characters and numeric digits that occur more than once in the 
+input string. The input string can be assumed to contain only alphabets 
+(both uppercase and lowercase) and numeric digits. 
+
+"abcde" -> 0 # no characters repeats more than once
+"aabbcde" -> 2 # 'a' and 'b'
+"aabBcde" -> 2 # 'a' occurs twice and 'b' twice (bandB)
+"indivisibility" -> 1 # 'i' occurs six times
+"Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+"aA11" -> 2 # 'a' and '1'
+"ABBA" -> 2 # 'A' and 'B' each occur twice
+*/
+
+function duplicateCount(text){
+    let textLower = text.toLowerCase();
+    let letterCount = 0;
+    let dupLetter = [];
+    
+    textLower.split('').forEach(function(letter) {
+      if (!dupLetter.includes(letter) && (textLower.split(letter).length - 1) > 1) {
+        letterCount = letterCount + 1;
+        dupLetter.push(letter);
+      }
+    });
+    
+    return letterCount;
+  }
+
+duplicateCount(abcde)
+duplicateCount(aabBcddee)
