@@ -200,7 +200,59 @@ function playerInfo(age, handicap) {
 playerInfo(18, 20)
 playerInfo(61, 12)
 
+/*
+Given 3 int values, a b c, return their sum. However, 
+if one of the values is the same as another of the values, 
+it does not count towards the sum.
 
+lone_sum(1, 2, 3) → 6
+lone_sum(3, 2, 3) → 2
+lone_sum(3, 3, 3) → 0
+*/
+
+function lone_sum(a, b, c) {
+  if ((a === b) && (a ===c )) {
+    console.log(0)
+    return
+  } if (a === b) {
+    console.log(c)
+    return
+  } if (a === c) {
+    console.log(b)
+    return
+  } if (b === c) {
+    console.log(a+c)
+    return
+  } else {
+   console.log(a+b+c)
+  }
+}
+
+lone_sum(1, 2, 3)
+lone_sum(3, 2, 3)
+lone_sum(3, 3, 3)
+
+/*
+Given 3 int values, a b c, return their sum.
+However, if one of the values is 13 then it does not count towards the 
+sum and values to its right do not count. So for example, if b is 13, 
+then both b and c do not count.
+
+lucky_sum(1, 2, 3) → 6
+lucky_sum(1, 2, 13) → 3
+lucky_sum(1, 13, 3) → 1
+*/
+
+const luckySum = (... list) => list
+  //.filter((value, index) => list.slice(0, index + 1).indexOf(13) === -1)
+  .filter((value, index) => list.slice(0, index + 1).includes(13) === false)
+  .reduce((total, value) => total + value)
+
+  lucky_sum(1, 2, 3)
+  lucky_sum(1, 2, 13)
+  lucky_sum(1, 13, 3)
+
+/*
 // How would you call this function repeatedly to get the whole sentence?
 
 const getSentenceFragment = (offset = 0) => {
@@ -239,3 +291,4 @@ const getSentence = (offset, callback) => {
 }
 
 getSentence(0, (sentence) => console.log(sentence))
+*/
