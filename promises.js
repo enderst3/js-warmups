@@ -1,3 +1,5 @@
+// This is better than callbacks but not better than async await
+
 const MAX = 100
 const FAILURE_RATE = 0.5
 
