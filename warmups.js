@@ -252,6 +252,29 @@ const luckySum = (... list) => list
   lucky_sum(1, 2, 13)
   lucky_sum(1, 13, 3)
 
+  /*
+  Mr. Scrooge has a sum of money 'P' that wants to invest, 
+  and he wants to know how many years 'Y' this sum has to be kept in the bank 
+  in order for this sum of money to amount to 'D'.
+
+  The sum is kept for 'Y' years in the bank where interest 
+  'I' is paid yearly, and the new sum is re-invested yearly after paying tax 'T' 
+  Note: that the principal is not taxed but only the year's accrued interest.
+  */
+
+  function Scrooge(desiredSum) {
+    let time
+    let principal = 1000.0
+    let interestRate = 0.05
+    let taxRate = 0.18
+    let annualAccrualRate = interestRate - taxRate
+    console.log(annualAccrualRate)
+    let desiredGrowth = desiredSum - principal
+    return desiredGrowth * annualAccrualRate
+ }
+ 
+ console.log(Scrooge())
+
 /*
 // How would you call this function repeatedly to get the whole sentence?
 
