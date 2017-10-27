@@ -315,3 +315,75 @@ const getSentence = (offset, callback) => {
 
 getSentence(0, (sentence) => console.log(sentence))
 */
+
+/*
+The word i18n is a common abbreviation of internationalization the developer community use instead of typing the whole word and trying to spell it correctly. Similarly, a11y is an abbreviation of accessibility.
+
+Write a function that takes a string and turns any and all "words" (see below) within that string of length 4 or greater into an abbreviation following the same rules.
+
+Notes:
+
+A "word" is a sequence of alphabetical characters. By this definition, any other character like a space or hyphen (eg. "elephant-ride") will split up a series of letters into two words (eg. "elephant" and "ride").
+The abbreviated version of the word should have the first letter, then the number of removed characters, then the last letter (eg. "elephant ride" => "e6t r2e").
+Example:
+
+abbreviate("elephant-rides are really fun!")
+
+Output:
+
+"e6t-r3s are r4y fun!"
+*/
+const abbreviate_sentence = (str) => {
+    str = str.split(" ")
+    let words = []
+    for (word of str) {
+      words.push(abbreviate_word(word))
+    }
+    return words.join(" ")
+  }
+  
+  const abbreviate_word = (str) => {
+    let punc = ""
+    if("!?.,".includes(str[str.length - 1]))
+    {
+      punc = str[str.length - 1]
+      str = str.slice(0, str.length-1)
+    }
+  
+    if(str.includes("-")){
+      words = str.split("-")
+      return abbreviate_word(words[0]) + "-" + abbreviate_word(words[1]) + punc
+    }else if(str.length > 3){
+      return str[0] + (str.length - 2) + str[str.length - 1] + punc
+    }else{
+      return str + punc
+    }
+  }
+  
+  console.log(abbreviate_sentence("elephant-rides are really fun!"))
+
+/* 
+Have you heard that Fibonacci had an older brother, Tribonacci? Tribonacci came up with a pattern that created the next element in the sequence based on the sum of the previous three elements:
+
+0, 1, 1, 2, 4, 7, 13, 24 ...
+Well, now it's time to expand the family a little more: think of a Quadribonacci starting with a signature of 4 elements and each following element is the sum of the 4 previous, a Pentabonacci (well Cinquebonacci would probably sound a bit more italian, but it would also sound really awful) with a signature of 5 elements and each following element is the sum of the 5 previous, and so on.
+
+Guess what? You have to build a Xbonacci function that takes a signature of X elements - and remember each next element is the sum of the last X elements - and returns the first n elements of the so seeded sequence.
+
+xbonacci {1,1,1,1} 10 = {1,1,1,1,4,7,13,25,49,94}
+xbonacci {0,0,0,0,1} 10 = {0,0,0,0,1,1,2,4,8,16}
+xbonacci {1,0,0,0,0,0,1} 10 = {1,0,0,0,0,0,1,2,3,6}
+xbonacci {1,1} produces the Fibonacci sequence
+
+*/
+
+  const xbonacci = (signature, n) => {
+    let len = signature.length
+    while (signature.length < n) {
+      signature.push(signature.slice(signature.length - len, signature.length).reduce((total, v) => total + v, 0))
+    }
+    return signature
+  }
+  
+  console.log(xbonacci([1, 1, 1], 10))
+  
