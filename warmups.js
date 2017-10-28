@@ -377,15 +377,15 @@ xbonacci {1,1} produces the Fibonacci sequence
 
 */
 
-  const xbonacci = (signature, n) => {
-    let len = signature.length
-    while (signature.length < n) {
-      signature.push(signature.slice(signature.length - len, signature.length).reduce((total, v) => total + v, 0))
-    }
-    return signature
+const xbonacci = (signature, n) => {
+  let len = signature.length
+  while (signature.length < n) {
+    signature.push(signature.slice(signature.length - len, signature.length).reduce((total, v) => total + v, 0))
   }
-  
-  console.log(xbonacci([1, 1, 1], 10))
+  return signature
+}
+
+console.log(xbonacci([1, 1, 1], 10))
 
 
 /*
@@ -410,3 +410,14 @@ If there are no numbers of this kind in the range [a, b] the function should out
 
 sumDigPow(90, 100) ==> []
 */
+
+const getDigits = (num) => {
+    let digitCount = Math.floor(Math.log10(num)) + 1
+    let digits = []
+    while (digitCount > 0) {
+      digits.push(Math.floor(num / 10 ** (digitCount - 1)))
+      num %= 10 ** (digitCount - 1)
+      digitCount -= 1
+    }
+    return digits
+  }
