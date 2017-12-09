@@ -472,3 +472,31 @@ console.log(josephus([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2)) // [2, 4, 6, 8, 10, 3,
 console.log(josephus(['C', 'o', 'd', 'e', 'W', 'a', 'r', 's'], 4)) // ['e', 's', 'W', 'o', 'C', 'd', 'r', 'a']
 console.log(josephus([1, 2, 3, 4, 5, 6, 7], 3)) // [3, 6, 2, 7, 5, 1, 4]
 console.log(josephus([], 3)) // []
+
+/*
+Your job is to complete the function nbrOfLaps(x, y) that, given the length of the laps for Bob and Charles, finds the number of laps that each jogger has to complete before they meet each other again, at the same time, at the start.
+
+The function takes two arguments:
+
+The length of Bob's lap (larger than 0)
+The length of Charles' lap (larger than 0)
+
+The function should return an array (Tuple<int, int> in C#) containing exactly two numbers:
+
+The first number is the number of laps that Bob has to run
+The second number is the number of laps that Charles has to run
+
+*/
+
+let nbrOfLaps = function (x, y) {
+  let count = x
+
+  while(count%y!==0) {count+=x}
+    return [count/x, count/y]
+}
+
+console.log(nbrOfLaps(5, 3)) // returns [3, 5]
+console.log(nbrOfLaps(4, 6)) // returns [3, 2]
+console.log(nbrOfLaps(13, 28)) // returns [ 28, 13 ]
+console.log(nbrOfLaps(81, 3)) // returns [ 1, 27 ]
+console.log(nbrOfLaps(51, 9)) // returns [ 3, 17 ]
