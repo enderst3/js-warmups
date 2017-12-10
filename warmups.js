@@ -491,7 +491,7 @@ The second number is the number of laps that Charles has to run
 let nbrOfLaps = function (x, y) {
   let count = x
 
-  while(count%y!==0) {count+=x}
+  while(count%y !== 0) {count += x}
     return [count/x, count/y]
 }
 
